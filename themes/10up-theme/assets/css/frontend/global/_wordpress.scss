@@ -1,0 +1,66 @@
+@use "../base/" as *;
+
+/* WordPress generated classes */
+
+body main > * {
+	max-width: var(--wp--style--global--content-size);
+	margin-left: auto;
+	margin-right: auto;
+
+	& > *:not(.alignfull) {
+		width: calc(100% - 2*var(--component-padding));
+	}
+}
+body main > .alignwide {
+	max-width: var(--wp--style--global--wide-size);
+}
+body main > .alignfull {
+	max-width: 100%;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.alignleft {
+	float: left;
+	margin-right: 1rem;
+	text-align: left;
+}
+
+.alignright {
+	float: right;
+	margin-left: 1rem;
+	text-align: right;
+}
+
+.aligncenter {
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+.wp-block-image {
+
+	&.alignfull {
+		figcaption {
+			text-align: center;
+		}
+	}
+}
+
+.wp-caption {
+	max-width: 100%;
+
+	&.aligncenter {
+		text-align: center;
+	}
+
+	&.alignright {
+		text-align: right;
+	}
+}
+
+.wp-caption-text {
+	margin: 0;
+}
