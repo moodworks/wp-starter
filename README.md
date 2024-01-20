@@ -67,8 +67,8 @@ By default it will run the following:
 
 ## Image sizes
 
-Before uploading any images, set the image sizes in the Settings > Media section of the admin panel. The Image Block from the Starter plugin loads the following image sizes:
+Before uploading any images, set the image sizes in the Settings > Media section of the admin panel. The Image Block from themes/10up-theme/includes/blocks loads the following image sizes:
 
 - ```thumbnail``` for screens up to 480px
 - ```medium``` for screens from 481px to 1024px
-- ```large``` for screens from 1025px to >
+- ```large``` for screens from 1025px and above
