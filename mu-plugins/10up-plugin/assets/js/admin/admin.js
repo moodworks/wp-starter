@@ -74,7 +74,7 @@ const generateClassName = (attributes) => {
 	return string;
 };
 
-registerBlockExtension(['core/group', 'core/column'], {
+registerBlockExtension(['core/group'], {
 	extensionName: 'responsive-settings',
 	attributes: additionalAttributes,
 	classNameGenerator: generateClassName,
