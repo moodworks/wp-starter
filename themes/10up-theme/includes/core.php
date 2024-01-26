@@ -281,19 +281,6 @@ function js_detection()
 }
 
 /**
- * no-js support that is needed for CodyHouse Framework
- */
-function codyframe_js_support()
-{
-?>
-	<script>
-		document.getElementsByTagName("html")[0].className += " js";
-	</script>
-<?php
-}
-add_action('wp_print_scripts', 'codyframe_js_support');
-
-/**
  * Add async/defer attributes to enqueued scripts that have the specified script_execution flag.
  *
  * @link https://core.trac.wordpress.org/ticket/12009
