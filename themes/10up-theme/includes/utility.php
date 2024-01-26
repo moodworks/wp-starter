@@ -41,21 +41,31 @@ function get_asset_info( $slug, $attribute = null ) {
  *
  * @param string $path the path to your CSS variables file
  */
-function get_colors( $path ) {
-
+function get_colors($path)
+{
 	$dir = get_stylesheet_directory();
 
-	if ( file_exists( $dir . $path ) ) {
-		$css_vars = file_get_contents( $dir . $path ); // phpcs:ignore WordPress.WP.AlternativeFunctions
-		// HEX(A) | RGB(A) | HSL(A) - rgba & hsla alpha as decimal or percentage
-		// https://regex101.com/r/l7AZ8R/
-		// this is a loose match and will accept almost anything within () for rgb(a) & hsl(a)
-		// a more optinionated solution is WIP here if you can improve on it https://regex101.com/r/FEtzDu/
-		preg_match_all( '(#(?:[\da-f]{3}){1}\b|#(?:[\da-f]{2}){3,4}\b|(rgb|hsl)a?\((\s|\d|[a-zA-Z]+|,|-|%|\.|\/)+\))', $css_vars, $matches );
+	if (file_exists($dir . $path)) {
+		$css_vars = file_get_contents($dir . $path); // phpcs:ignore WordPress.WP.AlternativeFunctions
 
-		return $matches[0];
+		// Match the HSL color definitions in the format used in your _colors.scss
+		preg_match_all('/@include defineColorHSL\((--color-[a-zA-Z0-9_-]+),\s*(\d+),\s*(\d+)%?,\s*(\d+)%?\);/', $css_vars, $matches);
+
+		// Prepare an array to hold the color values
+		$colors = array();
+		if (!empty($matches) && !empty($matches[1])) {
+			foreach ($matches[1] as $index => $colorName) {
+				$h = $matches[2][$index];
+				$s = $matches[3][$index];
+				$l = $matches[4][$index];
+				$colors[$colorName] = "hsl($h, $s%, $l%)";
+			}
+		}
+
+		return $colors;
 	}
 
+	return array(); // Return an empty array if no colors found or file does not exist
 }
 
 /**
