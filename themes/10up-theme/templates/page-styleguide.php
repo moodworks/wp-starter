@@ -90,9 +90,10 @@ get_header();
 			<h2 class="heading">Buttons</h2>
 
 			<div class="content">
-				<button type="button" class="button-primary">Button</button>
-				<button type="button" class="button-secondary">Button</button>
-				<button type="button" class="button-tertiary">Button</button>
+				<button type="button" class="btn">Button</button>
+				<button type="button" class="btn btn--primary">Button Primary</button>
+				<button type="button" class="btn btn--accent">Button accent</button>
+				<button type="button" class="btn btn--secondary">Button Secondary</button>
 			</div><!--/.content-->
 
 		</section><!--/.uikit__section-->
