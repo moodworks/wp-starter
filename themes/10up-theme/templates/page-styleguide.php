@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Template Name: Style Guide
  *
@@ -17,46 +18,48 @@ get_header();
 
 	<h1 class="uikit__heading">
 		<div class="uikit__block">
-			<span><?php echo esc_html( get_the_title() ); ?></span>
+			<span><?php echo esc_html(get_the_title()); ?></span>
 		</div>
 	</h1>
 
 	<div class="uikit__content">
 
 		<?php
-			$colors = get_colors( '/assets/css/frontend/global/colors.css' );
 
-		if ( ! empty( $colors ) ) :
-			?>
-		<section class="uikit__section" id="colors">
-			<h2 class="heading">Primary Palette</h2>
+		$colors = get_colors('/assets/css/frontend/global/_colors.scss');
 
-			<div class="content">
-				<ul class="uikit__colors">
+		if (!empty($colors)) :
+		?>
+			<section class="uikit__section" id="colors">
+				<h2 class="heading">Primary Palette</h2>
 
-				<?php foreach ( $colors as $color ) : ?>
+				<div class="content">
+					<ul class="uikit__colors">
 
-					<li class="uikit__color" style="background: <?php echo esc_attr( $color ); ?>; border-color: <?php echo esc_attr( adjust_brightness( $color, -25 ) ); ?>">
-						<p class="uikit__color--label uikit__text--small"><?php echo esc_html( $color ); ?></p>
-					</li>
+						<?php foreach ($colors as $name => $hex) : ?>
 
-				<?php endforeach; ?>
+							<li class="uikit__color" style="background: <?php echo esc_attr($hex); ?>; border-color: <?php echo esc_attr(adjust_brightness($color, -25)); ?>">
+								<p class="uikit__text--small uikit__color--label"><?php echo esc_html($name); ?></p>
+							</li>
+							<p class="uikit__text--small"><?php echo esc_html($hex); ?></p>
 
-				</ul>
-			</div><!--/.content-->
+						<?php endforeach; ?>
 
-		</section><!--/.uikit__section-->
+					</ul>
+				</div><!--/.content-->
+
+			</section><!--/.uikit__section-->
 		<?php endif; ?>
 
 		<section class="uikit__section" id="headings">
 			<h2 class="heading">Headings</h2>
 
 			<div class="content">
-				<h1>H1, Heading 1 {64px}</h1>
-				<h2>H2, Heading 2 {48px}</h2>
-				<h3>H3, Heading 3 {38px}</h3>
-				<h4>H4, Heading 4 {30px}</h4>
-				<h5>H5, Heading 5 {26px}</h5>
+				<h1>H1, Heading 1</h1>
+				<h2>H2, Heading 2</h2>
+				<h3>H3, Heading 3</h3>
+				<h4>H4, Heading 4</h4>
+				<h5>H5, Heading 5</h5>
 			</div><!--/.content-->
 
 		</section><!--/.uikit__section-->
