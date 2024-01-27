@@ -14,11 +14,11 @@
  */
 // @import url("modern-normalize/modern-normalize.css");
 
-/* Global - global pieces like media queries, mixins and placholders */
-@import "global/index";
-
 /* Base - base styles such as fonts, typography, and wordpress overrides */
-@import "base/index";
+@use "base/index" as *;
+
+/* Global - global pieces like media queries, mixins and placholders */
+@use "global/index" as *;
 
 /* Layout - styles specific to layout */
 
@@ -30,7 +30,7 @@
 
 /* Components */
 
-@import "components/index";
+@use "components/index" as *;
 
 
 /* Gutenberg blocks */
