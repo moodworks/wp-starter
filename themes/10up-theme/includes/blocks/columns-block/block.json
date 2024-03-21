@@ -1,0 +1,59 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"title": "Custom columns",
+	"description": "A Columns Block",
+	"textdomain": "tenup-theme",
+	"name": "tenup/columns",
+	"icon": "feedback",
+	"category": "formatting",
+	"example": {
+		"attributes": {
+			"title": "Custom Columns Block"
+		}
+	},
+	"supports": {
+		"html": false,
+		"spacing": {
+			"padding": true,
+			"margin": false
+		},
+		"color": {
+			"background": true,
+			"text": false,
+			"link": false
+		},
+		"align": true,
+		"reusable": false
+	},
+	"attributes": {
+		"gridGapSettings": {
+			"type": "object"
+		},
+		"isAutoGridEnabled": {
+			"type": "boolean",
+			"default": false
+		},
+		"autoGridSettings": {
+			"type": "object",
+			"default": "grid-auto-md"
+		},
+		"flexWrapSettings": {
+			"type": "object",
+			"default": {}
+		},
+		"flexDirectionSettings": {
+			"type": "object",
+			"default": {}
+		},
+		"justifyContentSettings": {
+			"type": "object",
+			"default": {}
+		},
+		"alignItemsSettings": {
+			"type": "object",
+			"default": {}
+		}
+	},
+	"editorScript": "file:./index.js"
+}

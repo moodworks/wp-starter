@@ -30,6 +30,7 @@ require_once TENUP_THEME_INC . 'template-tags.php';
 require_once TENUP_THEME_INC . 'utility.php';
 require_once TENUP_THEME_INC . 'blocks.php';
 require_once TENUP_THEME_INC . 'helpers.php';
+require_once TENUP_THEME_INC . 'template-locator.php';
 
 // Run the setup functions.
 TenUpTheme\Core\setup();

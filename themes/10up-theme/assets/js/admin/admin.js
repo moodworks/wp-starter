@@ -1,3 +1,3 @@
-import '../../css/admin/admin-style.css';
+import '../../css/admin/admin-style.scss';
 
 // import foo from './bar'

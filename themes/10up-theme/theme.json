@@ -46,9 +46,10 @@
 	  ]
     },
     "custom": {},
+	"useRootPaddingAwareAlignments": true,
     "layout": {
       "contentSize": "var(--max-width-md)",
-      "wideSize": "var(--max-width-xl)"
+      "wideSize": "var(--max-width-lg)"
     },
 	"spacing": {
 		"margin": true,
@@ -102,7 +103,7 @@
 		"customFontSize": false,
 		"lineHeight": true,
 		"dropCap": true,
-		"fontStyle": false,
+		"fontStyle": true,
 		"fontWeight": true,
 		"letterSpacing": true,
 		"textDecoration": true,
@@ -182,6 +183,14 @@
       "link": {}
     },
     "typography": {},
-    "blocks": {}
+    "blocks": {},
+	"spacing": {
+		"padding": {
+			"top": "0px",
+			"bottom": "0px",
+			"right": "var(--component-padding)",
+			"left": "var(--component-padding)"
+		}
+	}
   }
 }

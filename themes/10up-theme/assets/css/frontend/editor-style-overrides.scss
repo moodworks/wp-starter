@@ -1,0 +1,85 @@
+/**
+ * TenUpTheme - Editor Style Overrides
+ * https://project-website.tld
+ *
+ * Copyright (c) 2017 10up
+ * Licensed under the MIT license.
+ */
+
+.editor-styles-wrapper {
+}
+
+// Editor Styles
+.editor-styles-wrapper,
+.is-root-container {
+	.wp-block-post-title {
+		margin-bottom: 1em;
+	}
+
+	// Typography
+	p,
+	ul,
+	ol,
+	dl,
+	blockquote,
+	pre {
+		margin-bottom: 1em !important;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		margin-bottom: 0.5em !important;
+	}
+
+	// Tables and Forms
+	table,
+	figure,
+	form {
+		margin-bottom: 1.5em;
+	}
+
+	// Horizontal Rules
+	hr {
+		margin-bottom: 2em;
+	}
+
+	// Images and Media
+	img,
+	video,
+	audio {
+		margin-bottom: 1.25em;
+	}
+
+	// Headings with Additional Elements
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		+ p,
+		+ div {
+			//margin-top: 0.5em;
+		}
+	}
+
+	// Embedded Content
+	iframe {
+		margin-bottom: 1.25em;
+	}
+
+	// Lists
+	ul {
+		list-style: disc !important;
+		margin-left: 1em;
+	}
+
+	ol {
+		list-style: decimal !important;
+		margin-left: 1em;
+	}
+}

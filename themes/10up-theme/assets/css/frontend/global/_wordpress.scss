@@ -2,7 +2,25 @@
 
 /* WordPress generated classes */
 
-body main > * {
+.wp-block-cover, .is-layout-flow, .is-layout-constrained, .is-layout-flex {
+	max-width: var(--wp--style--global--content-size);
+	margin: 0 auto;
+
+	&.alignsmall {
+		max-width: var(--max-width-sm);
+	}
+
+	&.alignwide {
+		max-width: var(--wp--style--global--wide-size);
+	}
+
+	&.alignfull {
+		max-width: 100%;
+		margin: 0;
+	}
+}
+
+/* body main > * {
 	max-width: var(--wp--style--global--content-size);
 	margin-left: auto;
 	margin-right: auto;
@@ -38,10 +56,302 @@ body main > .alignfull {
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
+} 
+.alignleft {
+	float: left;
+	margin-right: 1rem;
+	text-align: left;
+}
+
+.alignright {
+	float: right;
+	margin-left: 1rem;
+	text-align: right;
+}
+
+.aligncenter {
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+} */
+
+/**
+ * Base styles.
+ */
+/************************************************
+  Audio Blocks
+************************************************/
+
+.wp-block-audio {
+	margin-left: 0px;
+	margin-right: 0px;
+}
+.wp-block-audio audio {
+	width: 100%;
+}
+
+/************************************************
+  Blockquotes
+************************************************/
+
+blockquote,
+blockquote.wp-block-quote {
+	font-size: 130%;
+	line-height: 1.5;
+	margin: 32px 0px;
+	padding: 12px 18px;
+	border-left: 2px solid rgba(0, 0, 0, 0.12);
+}
+.wp-block-quote:not(.is-large):not(.is-style-large) {
+	padding-left: 18px;
+	border-left: 2px solid rgba(0, 0, 0, 0.12);
+}
+.wp-block-quote__citation,
+.wp-block-quote cite,
+.wp-block-quote footer {
+	display: block;
+	color: rgba(0, 0, 0, 0.4);
+	font-size: 0.85rem;
+	margin-top: 12px;
+}
+.wp-block-quote cite::before,
+.wp-block-quote footer::before {
+	content: "— ";
+}
+
+/************************************************
+  Buttons
+************************************************/
+
+.wp-block-button {
+	position: relative;
+	box-sizing: border-box;
+}
+.wp-block-button.alignwide a {
+	display: block;
+}
+
+/************************************************
+  Code Blocks
+************************************************/
+
+code,
+pre,
+.wp-block-code {
+	color: #666666;
+	font-family: Courier, sans-serif;
+	line-height: 1.4;
+	margin: 32px 0px;
+	padding: 12px;
+	border: 2px solid rgba(0, 0, 0, 0.24);
+	box-shadow: inset 0px 0px 6px rgba(0, 0, 0, 0.12);
+	box-sizing: border-box;
+	border-radius: 3px;
+}
+
+/************************************************
+  Cover Images
+************************************************/
+
+.wp-block-cover,
+.wp-block-cover-image {
+	margin-top: 32px;
+	margin-bottom: 32px;
+}
+.wp-block-cover-image.has-background-dim,
+.wp-block-cover-image.has-background-dim h2 {
+	color: #ffffff;
+}
+
+/************************************************
+  Gallery Blocks
+************************************************/
+
+.wp-block-gallery .blocks-gallery-item {
+	margin-left: 0px;
+	margin-right: 0px;
+	padding: 0px;
+}
+.wp-block-gallery .blocks-gallery-image {
+	margin-left: 0px;
+	margin-right: 0px;
+}
+.wp-block-gallery .blocks-gallery-image figcaption,
+.wp-block-gallery .blocks-gallery-item figcaption {
+	box-sizing: border-box;
+}
+
+/************************************************
+  Articles
+************************************************/
+article {
+
+	ul {
+		list-style: disc;
+		margin-left: 1em;
+	}
+	ol {
+		list-style: decimal;
+		margin-left: 1em;
+	}
+
+	// Typography
+	p,
+	ul,
+	ol,
+	dl,
+	blockquote,
+	pre {
+		margin-bottom: 1em;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		margin-bottom: 0.75em;
+	}
+
+	// Tables and Forms
+	table,
+	figure,
+	form {
+		margin-bottom: 1.5em;
+	}
+
+	// Horizontal Rules
+	hr {
+		margin-bottom: 2em;
+	}
+
+	// Images and Media
+	img,
+	video,
+	audio {
+		margin-bottom: 1.25em;
+	}
+	// Headings with Additional Elements
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		+ p,
+		+ div {
+			//margin-top: 0.5em;
+		}
+	}
+
+	// Embedded Content
+	iframe {
+		margin-bottom: 1.25em;
+	}
+}
+
+/************************************************
+  Images
+************************************************/
+
+/* .wp-block-image {
+	max-width: none;
+	margin: 32px auto;
+	padding: 0px;
+}
+img.aligncenter,
+.wp-block-image.aligncenter {
+	display: block;
+	margin: 12px auto;
+	padding: 0px;
+}
+img.alignnone,
+.wp-block-image.alignnone {
+	display: inline;
+	margin: 12px 0px;
+	padding: 0px;
+}
+img.alignright,
+.wp-block-image.alignright {
+	display: inline;
+	margin: 16px 0px 16px 24px;
+	padding: 0px;
+}
+img.alignleft,
+.wp-block-image.alignleft {
+	display: inline;
+	margin: 16px 24px 16px 0px;
+	padding: 0px;
+} */
+
+/************************************************
+  Tables
+************************************************/
+
+table,
+table.wp-block-table {
+	width: 100%;
+	text-align: left;
+	padding: 0px;
+	//border: 1px solid var(--color-black);
+	border-spacing: 0;
+}
+table p,
+table form,
+table ul,
+table li {
+	margin: 0.5rem 0px;
+	padding: 0px;
+}
+table thead,
+table tfoot,
+table.wp-block-table thead,
+table.wp-block-table tfoot {
+	/* border: 1px solid #dddddd;
+	border: 1px solid rgba(0, 0, 0, 0.12); */
+}
+table tbody tr:nth-child(odd) {
+	background: var(--color-bg-dark);
+}
+table th,
+table.wp-block-table th {
+	font-size: 1.1rem;
+	font-weight: bold;
+	text-transform: uppercase;
+	margin: 0px;
+	padding: var(--space-md);
+	/* border-top: 1px solid #dddddd;
+	border-top: 1px solid rgba(0, 0, 0, 0.12); */
+	box-sizing: border-box;
+}
+table td,
+table.wp-block-table td {
+	padding: var(--space-md);
+	margin: 0px;
+	/* border-top: 1px solid #dddddd;
+	border-top: 1px solid rgba(0, 0, 0, 0.12); */
+	box-sizing: border-box;
+}
+table.wp-block-table.is-style-stripes {
+	border-collapse: collapse;
+}
+table.wp-block-table.is-style-stripes td {
+	/* border: 1px solid #dddddd;
+	border: 1px solid rgba(0, 0, 0, 0.12); */
+}
+/**
+* WordPress generated classes.
+*/
+/* .alignfull {
+	max-width: 100%;
+	margin-left: 0;
+	margin-right: 0;
 }
 
 .wp-block-image {
-
 	&.alignfull {
 		figcaption {
 			text-align: center;
@@ -63,4 +373,4 @@ body main > .alignfull {
 
 .wp-caption-text {
 	margin: 0;
-}
+} */

@@ -20,4 +20,5 @@
 
 		<main id="main" role="main" tabindex="-1">
 
-			<h1><?php bloginfo( 'name' ); ?></h1>
+			<?php // template part header
+			get_template_part( 'partials/nav' ); ?>

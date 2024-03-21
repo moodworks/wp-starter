@@ -1,0 +1,137 @@
+{
+	"sizeOptions": [
+		{
+			"label": "0",
+			"value": "0"
+		},
+		{
+			"label": "Min",
+			"value": "xxxxs"
+		},
+		{
+			"label": "3X-small",
+			"value": "xxxs"
+		},
+		{
+			"label": "2X-small",
+			"value": "xxs"
+		},
+		{
+			"label": "X-small",
+			"value": "xs"
+		},
+		{
+			"label": "Small",
+			"value": "sm"
+		},
+		{
+			"label": "Medium",
+			"value": "md"
+		},
+		{
+			"label": "Large",
+			"value": "lg"
+		},
+		{
+			"label": "X-large",
+			"value": "xl"
+		},
+		{
+			"label": "2X-large",
+			"value": "xxl"
+		},
+		{
+			"label": "3X-large",
+			"value": "xxxl"
+		},
+		{
+			"label": "Max",
+			"value": "xxxxl"
+		}
+	],
+	"sizeOptionsBreakpoints": [
+		{
+			"label": "0",
+			"value": "0"
+		},
+		{
+			"label": "X-small",
+			"value": "xs"
+		},
+		{
+			"label": "Small",
+			"value": "sm"
+		},
+		{
+			"label": "Medium",
+			"value": "md"
+		},
+		{
+			"label": "Large",
+			"value": "lg"
+		},
+		{
+			"label": "X-large",
+			"value": "xl"
+		}
+	],
+	"flexboxOptions": [
+		{
+			"label": "Flex wrap",
+			"value": "flex-wrap"
+		},
+		{
+			"label": "No wrap",
+			"value": "flex-nowrap"
+		},
+		{
+			"label": "Flex row",
+			"value": "flex-row"
+		},
+		{
+			"label": "Reverse",
+			"value": "reverse"
+		},
+		{
+			"label": "Flex column",
+			"value": "flex-column"
+		},
+		{
+			"label": "Justify start",
+			"value": "justify-start"
+		},
+		{
+			"label": "Justify end",
+			"value": "justify-end"
+		},
+		{
+			"label": "Justify center",
+			"value": "justify-center"
+		},
+		{
+			"label": "Justify between",
+			"value": "justify-between"
+		},
+		{
+			"label": "Justify around",
+			"value": "items-start"
+		},
+		{
+			"label": "Items end",
+			"value": "items-end"
+		},
+		{
+			"label": "Items center",
+			"value": "items-center"
+		},
+		{
+			"label": "Items baseline",
+			"value": "items-baseline"
+		},
+		{
+			"label": "Items stretch",
+			"value": "items-stretch"
+		}
+
+	]
+}

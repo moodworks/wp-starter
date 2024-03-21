@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"title": "Inner Container",
+	"description": "A Inner Container with 4 different widths",
+	"textdomain": "tenup-theme",
+	"name": "tenup/inner-container",
+	"icon": "superhero",
+	"category": "design",
+	"attributes": {
+		"maxWidth": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"example": {
+		"attributes": {
+			"title": "Inner Container block"
+		}
+	},
+	"supports": {
+		"html": false,
+		"spacing": {
+			"padding": true,
+			"margin": false
+		},
+		"align": ["full", "center", "left", "right"]
+	},
+"editorScript": "file:./index.js"
+}

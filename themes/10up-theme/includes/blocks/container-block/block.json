@@ -1,0 +1,28 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"title": "Container",
+	"description": "A Container block",
+	"textdomain": "tenup-theme",
+	"name": "tenup/container",
+	"icon": "tagcloud",
+	"category": "design",
+	"attributes": {
+	},
+	"example": {
+		"attributes": {
+			"title": "Container block"
+		}
+	},
+	"supports": {
+		"html": false,
+		"spacing": {
+			"padding": true,
+			"margin": true
+		},
+		"color": {
+			"background": true
+		}
+	},
+"editorScript": "file:./index.js"
+}
