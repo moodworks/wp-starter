@@ -9,24 +9,6 @@ export const breakpointValues = {
 	xl: <PiDesktop />,
 };
 
-/* export const generateClassString = (attr, sizeOptions, breakpointValues) => {
-	return Object.entries(breakpointValues)
-		.reduce((classes, [breakpoint, value]) => {
-			if (value) {
-				const sizeOption = sizeOptions.find((option) => option.value === value);
-				if (sizeOption) {
-					let classString = attr ? `${attr}-${sizeOption.value}` : `${sizeOption.value}`;
-					if (breakpoint) {
-						classString += `@${breakpoint}`;
-					}
-					classes.push(classString);
-				}
-			}
-			return classes;
-		}, [])
-		.join(' ');
-}; */
-
 export const generateClassString = (attr, options, breakpointValues) => {
 	return Object.entries(breakpointValues)
 		.reduce((classes, [breakpoint, value]) => {
@@ -54,6 +36,9 @@ const hasActiveSettings = (settingsObj) => {
 	}
 	if (typeof settingsObj === 'string') {
 		return settingsObj !== '';
+	}
+	if (typeof settingsObj === 'object') {
+		return Object.values(settingsObj).some((value) => value !== '');
 	}
 	return false;
 };

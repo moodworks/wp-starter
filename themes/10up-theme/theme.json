@@ -46,11 +46,7 @@
 	  ]
     },
     "custom": {},
-	"useRootPaddingAwareAlignments": true,
-    "layout": {
-      "contentSize": "var(--max-width-md)",
-      "wideSize": "var(--max-width-lg)"
-    },
+	
 	"spacing": {
 		"margin": true,
 		"padding": true,

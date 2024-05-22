@@ -1,11 +1,16 @@
 import { RangeControl } from '@wordpress/components';
 import BreakpointSettings from './responsiveOptions';
-import { sizeOptionsBreakpoints } from './manifest.json';
+import manifest from './manifest.json';
+
+const { sizeOptionsBreakpoints } = manifest;
+
+console.log('sizeOptionsBreakpoints:', sizeOptionsBreakpoints);
 
 const ResponsiveRangeControlBreakpoints = ({ value = {}, onChange }) => {
 	const handleBreakpointChange = (breakpoint, newValue) => {
+		console.log('Breakpoint:', breakpoint);
+		console.log('New value:', newValue);
 		onChange({
-			...value,
 			[breakpoint]: newValue,
 		});
 	};

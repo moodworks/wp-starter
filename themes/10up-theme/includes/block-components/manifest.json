@@ -1,6 +1,10 @@
 {
 	"sizeOptions": [
 		{
+			"label": "None",
+			"value": ""
+		},
+		{
 			"label": "0",
 			"value": "0"
 		},
@@ -47,32 +51,6 @@
 		{
 			"label": "Max",
 			"value": "xxxxl"
-		}
-	],
-	"sizeOptionsBreakpoints": [
-		{
-			"label": "0",
-			"value": "0"
-		},
-		{
-			"label": "X-small",
-			"value": "xs"
-		},
-		{
-			"label": "Small",
-			"value": "sm"
-		},
-		{
-			"label": "Medium",
-			"value": "md"
-		},
-		{
-			"label": "Large",
-			"value": "lg"
-		},
-		{
-			"label": "X-large",
-			"value": "xl"
 		}
 	],
 	"flexboxOptions": [
@@ -132,6 +110,153 @@
 			"label": "Items stretch",
 			"value": "items-stretch"
 		}
+	],
+	"maxWidthSizes": [
+		{
+			"label": "None",
+			"value": "none"
+		},
+		{
+			"label": "Min",
+			"value": "xxxs"
+		},
+		{
+			"label": "2X-small",
+			"value": "xxs"
+		},
+		{
+			"label": "X-small",
+			"value": "xs"
+		},
+		{
+			"label": "Small",
+			"value": "sm"
+		},
+		{
+			"label": "Medium",
+			"value": "md"
+		},
+		{
+			"label": "Large",
+			"value": "lg"
+		},
+		{
+			"label": "X-large",
+			"value": "xl"
+		},
+		{
+			"label": "100%",
+			"value": "100%"
+		}
+	],
+	"columnSizes": [
+		{
+			"label": "None",
+			"value": ""
+		},
+		{
+			"label": "Content",
+			"value": "content"
+		},
+		{
+			"label": "1/12",
+			"value": "1"
+		},
+		{
+			"label": "2/12",
+			"value": "2"
+		},
+		{
+			"label": "3/12",
+			"value": "3"
+		},
+		{
+			"label": "4/12",
+			"value": "4"
+		},
+		{
+			"label": "5/12",
+			"value": "5"
+		},
+		{
+			"label": "6/12",
+			"value": "6"
+		},
+		{
+			"label": "7/12",
+			"value": "7"
+		},
+		{
+			"label": "8/12",
+			"value": "8"
+		},
+		{
+			"label": "9/12",
+			"value": "9"
+		},
+		{
+			"label": "10/12",
+			"value": "10"
+		},
+		{
+			"label": "11/12",
+			"value": "11"
+		},
+		{
+			"label": "12/12",
+			"value": "12"
+		}
+	],
+		"columnOffsetSizes": [
+			{
+				"label": "None",
+				"value": "0"
+			},
+			{
+				"label": "1/12",
+				"value": "1"
+			},
+			{
+				"label": "2/12",
+				"value": "2"
+			},
+			{
+				"label": "3/12",
+				"value": "3"
+			},
+			{
+				"label": "4/12",
+				"value": "4"
+			},
+			{
+				"label": "5/12",
+				"value": "5"
+			},
+			{
+				"label": "6/12",
+				"value": "6"
+			},
+			{
+				"label": "7/12",
+				"value": "7"
+			},
+			{
+				"label": "8/12",
+				"value": "8"
+			},
+			{
+				"label": "9/12",
+				"value": "9"
+			},
+			{
+				"label": "10/12",
+				"value": "10"
+			},
+			{
+				"label": "11/12",
+				"value": "11"
+			}
 
-	]
+		]
+		
 }

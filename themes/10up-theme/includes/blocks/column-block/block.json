@@ -1,0 +1,66 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "title": "Column Block",
+  "description": "A column Block",
+  "textdomain": "tenup-theme",
+  "name": "tenup/column",
+  "icon": "columns",
+  "category": "design",
+  "attributes":{
+	"colSizeSettings": {
+		"type": "object",
+		"default": {}
+	},
+	"colOffsetSettings": {
+		"type": "object",
+		"default": {}
+	},
+	"paddingSettings": {
+		"type": "object",
+		"default": {}
+	},
+	"marginSettings": {
+		"type": "object",
+		"default": {}
+	},
+	"gridGapXSettings": {
+		"type": "object",
+		"default": {}
+	},
+	"gridGapYSettings": {
+		"type": "object",
+		"default": {}
+	},
+	"flexWrapSettings": {
+		"type": "object",
+		"default": {}
+	},
+	"flexDirectionSettings": {
+		"type": "object",
+		"default": {}
+	},
+	"justifyContentSettings": {
+		"type": "object",
+		"default": {}
+	},
+	"alignItemsSettings": {
+		"type": "object",
+		"default": {}
+	}
+  },
+  "example": {
+    "attributes":{
+      "title": "Column Block"
+    }
+  },
+  "supports": {
+    "html": false,
+	"color": {
+		"background": true,
+		"text": true,
+		"link": true
+	}
+  },
+  "editorScript": "file:./index.js"
+}

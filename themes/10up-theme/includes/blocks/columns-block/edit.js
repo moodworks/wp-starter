@@ -1,35 +1,39 @@
 import { __ } from '@wordpress/i18n';
-import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
-import { PanelBody, FormToggle } from '@wordpress/components';
+import { InspectorControls, useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
+import { PanelBody, Button } from '@wordpress/components';
 import { useMemo } from '@wordpress/element';
-import {
-	sizeOptions,
-	sizeOptionsBreakpoints,
-	flexboxOptions,
-} from '../../block-components/manifest.json';
 import { generateClassString } from '../../block-components/responsiveOptions';
 import ResponsiveRangeControl from '../../block-components/responsiveRangeControl';
-import ResponsiveRangeControlBreakpoints from '../../block-components/responsiveRangeControlBreakpoints';
-import FlexboxControl from '../../block-components/FlexboxOptions';
+import ContainerOptions from '../../block-components/containerOptions';
+import FlexboxControl from '../../block-components/flexboxOptions';
+import SpacingOptions from '../../block-components/spacingOptions';
+import manifest from '../../block-components/manifest.json';
 
-const Edit = ({ attributes, setAttributes }) => {
+const { sizeOptions, flexboxOptions, maxWidthSizes } = manifest;
+
+const Edit = ({ attributes, setAttributes, clientId }) => {
 	const {
-		gridGapSettings,
-		isAutoGridEnabled,
-		autoGridSettings = {},
+		maxWidthSettings,
+		isFullWidth,
+		gridGapXSettings = {},
+		gridGapYSettings = {},
 		flexWrapSettings,
 		flexDirectionSettings,
 		justifyContentSettings,
 		alignItemsSettings,
 	} = attributes;
 
-	const getGapClass = useMemo(() => {
-		return generateClassString('gap', sizeOptions, gridGapSettings);
-	}, [gridGapSettings]);
+	const getMaxWidthClass = useMemo(() => {
+		return generateClassString('max-width', maxWidthSizes, maxWidthSettings);
+	}, [maxWidthSettings]);
 
-	const getAutoGridClass = useMemo(() => {
-		return generateClassString('grid-auto', sizeOptionsBreakpoints, autoGridSettings);
-	}, [autoGridSettings]);
+	const getGapXClass = useMemo(() => {
+		return generateClassString('gap-x', sizeOptions, gridGapXSettings);
+	}, [gridGapXSettings]);
+
+	const getGapYClass = useMemo(() => {
+		return generateClassString('gap-y', sizeOptions, gridGapYSettings);
+	}, [gridGapYSettings]);
 
 	const getFlexWrapClass = useMemo(() => {
 		return generateClassString('', flexboxOptions, flexWrapSettings);
@@ -54,75 +58,148 @@ const Edit = ({ attributes, setAttributes }) => {
 		return generateClassString('', flexboxOptions, alignItemsSettings);
 	}, [alignItemsSettings]);
 
+	const getSpacingClass = useMemo(() => {
+		const { paddingSettings = {}, marginSettings = {} } = attributes;
+
+		const classes = [];
+
+		Object.entries(paddingSettings).forEach(([breakpoint, values]) => {
+			if (values) {
+				Object.entries(values).forEach(([spacingOption, sizeOption]) => {
+					if (sizeOption) {
+						const className = breakpoint
+							? `${spacingOption}-${sizeOption}@${breakpoint}`
+							: `${spacingOption}-${sizeOption}`;
+						classes.push(className);
+					}
+				});
+			}
+		});
+
+		Object.entries(marginSettings).forEach(([breakpoint, values]) => {
+			if (values) {
+				Object.entries(values).forEach(([spacingOption, sizeOption]) => {
+					if (sizeOption) {
+						const className = breakpoint
+							? `margin-${spacingOption}-${sizeOption}@${breakpoint}`
+							: `margin-${spacingOption}-${sizeOption}`;
+						classes.push(className);
+					}
+				});
+			}
+		});
+
+		return classes.join(' ');
+	}, [attributes]);
+
+	let containerClassNamesFullWidth = '';
+	if (isFullWidth) {
+		containerClassNamesFullWidth = '';
+	} else {
+		containerClassNamesFullWidth = `container ${getMaxWidthClass}`;
+	}
+
+	let containerClassNames = '';
+	if (isFullWidth) {
+		containerClassNames = `container ${getMaxWidthClass}`;
+	} else {
+		containerClassNames = '';
+	}
+
+	const customProps = `${containerClassNames} grid ${getGapXClass} ${getGapYClass} ${getFlexWrapClass} ${getFlexDirectionClass} ${getJustifyContentClass} ${getAlignItemsClass} ${getSpacingClass}`;
+
 	const blockProps = useBlockProps({
-		className: `${
-			isAutoGridEnabled ? getAutoGridClass : 'grid'
-		} ${getGapClass} ${getFlexWrapClass} ${getFlexDirectionClass} ${getJustifyContentClass} ${getAlignItemsClass}`,
+		className: isFullWidth
+			? containerClassNamesFullWidth
+			: `${containerClassNamesFullWidth} ${customProps}`,
 	});
+
+	const innerBlocksProps = useInnerBlocksProps(
+		{},
+		{
+			allowedBlocks: ['tenup/column'],
+			template: [['tenup/column', { placeholder: 'Column' }]],
+			templateLock: false,
+			renderAppender: () => (
+				<Button
+					className="custom-appender-button"
+					onClick={() => {
+						const newBlock = wp.blocks.createBlock('tenup/column', {
+							placeholder: 'Column',
+						});
+						wp.data
+							.dispatch('core/block-editor')
+							.insertBlocks(newBlock, undefined, clientId);
+					}}
+				>
+					Add Column
+				</Button>
+			),
+		},
+	);
 
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title={__('Auto Grid', 'tenup-theme')} initialOpen className="sidebar">
-					<div className="flex gap-md">
-						<p className="sidebar__subtitle">Enable Auto Grid</p>
-						<FormToggle
-							label={__('Enable Auto Grid', 'tenup-theme')}
-							className="sidebar__toggle"
-							checked={isAutoGridEnabled}
-							onChange={() =>
-								setAttributes({ isAutoGridEnabled: !isAutoGridEnabled })
-							}
-						/>
-					</div>
-					<p className="sidebar__desc">
-						Automatically set the number of columns based on the content.
-					</p>
-
-					{isAutoGridEnabled && (
-						<>
-							<p className="sidebar__subtitle">Min Column Width</p>
-							<p className="sidebar__desc">Set the minimum width for each column.</p>
-							<ResponsiveRangeControlBreakpoints
-								value={autoGridSettings}
-								onChange={(newSettings) =>
-									setAttributes({ autoGridSettings: newSettings })
-								}
-							/>
-						</>
-					)}
+				<PanelBody
+					title={__('Container Options', 'tenup-theme')}
+					initialOpen
+					className="sidebar"
+				>
+					<ContainerOptions attributes={attributes} setAttributes={setAttributes} />
+				</PanelBody>
+				<PanelBody
+					title={__('Spacing Settings', 'tenup-theme')}
+					initialOpen
+					className="sidebar"
+				>
+					<SpacingOptions
+						attributes={attributes}
+						setAttributes={setAttributes}
+						options={['padding', 'margin']}
+					/>
 				</PanelBody>
 				<PanelBody
 					title={__('Columns Settings', 'tenup-theme')}
 					initialOpen
 					className="sidebar"
 				>
-					<p className="sidebar__subtitle">Gap</p>
-					<p className="sidebar__desc">Set the grid gap here.</p>
+					<p className="sidebar__subtitle">Gap X</p>
+					<p className="sidebar__desc">Set the horizontal gap between columns.</p>
 					<ResponsiveRangeControl
-						value={gridGapSettings}
-						onChange={(newSettings) => setAttributes({ gridGapSettings: newSettings })}
+						value={gridGapXSettings}
+						onChange={(newSettings) => setAttributes({ gridGapXSettings: newSettings })}
+						options={sizeOptions}
+					/>
+					<p className="sidebar__subtitle">Gap Y</p>
+					<p className="sidebar__desc">Set the vertical gap between columns.</p>
+					<ResponsiveRangeControl
+						value={gridGapYSettings}
+						onChange={(newSettings) => setAttributes({ gridGapYSettings: newSettings })}
+						options={sizeOptions}
 					/>
 				</PanelBody>
-				{!isAutoGridEnabled && (
-					<PanelBody
-						title={__('Flexbox Settings', 'tenup-theme')}
-						initialOpen
-						className="sidebar"
-					>
-						<FlexboxControl
-							attributes={attributes}
-							setAttributes={setAttributes}
-							options={['justify', 'align', 'wrap', 'direction']}
-						/>
-					</PanelBody>
-				)}
+
+				<PanelBody
+					title={__('Flexbox Settings', 'tenup-theme')}
+					initialOpen
+					className="sidebar"
+				>
+					<FlexboxControl
+						attributes={attributes}
+						setAttributes={setAttributes}
+						options={['justify', 'align', 'wrap', 'direction']}
+					/>
+				</PanelBody>
 			</InspectorControls>
-			<div {...blockProps}>
-				<div className="col-3">Column 1</div>
-				<div className="col-5">Column 2</div>
-				<div className="col-12">Column 3</div>
-			</div>
+
+			{isFullWidth ? (
+				<section {...blockProps}>
+					<div className={customProps}>{innerBlocksProps.children}</div>
+				</section>
+			) : (
+				<section {...blockProps}>{innerBlocksProps.children}</section>
+			)}
 		</>
 	);
 };

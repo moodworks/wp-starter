@@ -1,4 +1,3 @@
-// import { __ } from '@wordpress/i18n';
 import { ButtonGroup, Button } from '@wordpress/components';
 import {
 	PiArrowRight,
@@ -18,7 +17,7 @@ import {
 } from 'react-icons/pi';
 import BreakpointSettings from './responsiveOptions';
 
-const FlexboxControl = ({ attributes, setAttributes, options }) => {
+const FlexboxControl = ({ attributes, setAttributes, options = [] }) => {
 	const { flexWrapSettings, flexDirectionSettings, justifyContentSettings, alignItemsSettings } =
 		attributes;
 

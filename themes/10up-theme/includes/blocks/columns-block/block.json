@@ -6,7 +6,7 @@
 	"textdomain": "tenup-theme",
 	"name": "tenup/columns",
 	"icon": "feedback",
-	"category": "formatting",
+	"category": "design",
 	"example": {
 		"attributes": {
 			"title": "Custom Columns Block"
@@ -27,16 +27,29 @@
 		"reusable": false
 	},
 	"attributes": {
-		"gridGapSettings": {
-			"type": "object"
+		"maxWidthSettings": {
+			"type": "object",
+			"default": {}
 		},
-		"isAutoGridEnabled": {
+		"isFullWidth": {
 			"type": "boolean",
 			"default": false
 		},
-		"autoGridSettings": {
+		"paddingSettings": {
 			"type": "object",
-			"default": "grid-auto-md"
+			"default": {}
+		},
+		"marginSettings": {
+			"type": "object",
+			"default": {}
+		},
+		"gridGapXSettings": {
+			"type": "object",
+			"default": {}
+		},
+		"gridGapYSettings": {
+			"type": "object",
+			"default": {}
 		},
 		"flexWrapSettings": {
 			"type": "object",
